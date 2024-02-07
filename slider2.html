@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* Basic styles for the tabbed slider */
+        .tabbed-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .tabbed-slider .slider-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tabbed-slider .tabs-container {
+            flex: 1;
+        }
+
+        .tabbed-slider .tabs {
+            display: flex;
+        }
+
+        .tabbed-slider .tab {
+            cursor: pointer;
+            padding: 10px;
+            height: 84px;
+            background-color:#f4f4f4;
+            flex: 1;
+            text-align: center;
+            flex-basis: 0;
+            margin: 5px;
+        }
+
+        .tabbed-slider .slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            flex-basis: 100%; /* Full width on small screens */
+            position: relative;
+        }
+
+        .tabbed-slider .slider .slide {
+    flex: 0 0 100%;
+    padding: 30px 20px 20px 119px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+        .tabbed-slider .slider .slide img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .tabbed-slider .nav-arrows {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tabbed-slider .nav-arrow {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #ccc;
+        }
+
+        .tabbed-slider .tab.active {
+            background: #f4cc2f;
+           border-radius: 6px;
+        }
+        .svg-icon{
+       display: flex;
+       align-items: center;
+       color:  #f4cc2f;;
+         }
+         svg {
+    width: 40px;
+    height: 40px;
+}
+img.slide-image {
+    width: 100%;
+}
+h3.text-heading {
+    color: #08172b;
+    font-family: Airbnb Cereal App bolder;
+    font-size: 32px;
+    line-height: 1.2;
+}
+span.learn-more-btn svg {
+    width: 23px;
+}
+span.learn-more-btn {
+    color: #08172b;
+    font-family: Airbnb Cereal App lighter;
+    font-size: 20px;
+    text-decoration: none;
+}
+.tabbed-slider .nav-arrow {
+   
+    cursor: pointer;
+    padding: 0px 23px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 204, 50) !important;
+    font-size: 42px;
+    height: 60px;
+    width: 60px;
+}
+.nav-arrow.right {
+    position: absolute;
+    right: 265px;
+    top: 45%;
+}
+.nav-arrow.left {
+    position: absolute;
+    top: 45%;
+    left: 228px;
+}
+.wrapper {
+     padding: 23px 0;
+    background: #f3f7fa;
+ margin: 70px 35px 22px 29px; 
+    border-radius: 6px;
+    height: 550px;
+}
+i.fa.fa-chevron-right {
+    font-size: 16px;
+    position: absolute;
+    top: 22px;
+}
+.tabbed-slider .tab-content {
+            color: black; /* Default text color for tab content */
+        }
+        i.fa.fa-chevron-left {
+    font-size: 16px;
+    position: absolute;
+    top: 21px;
+}
+        @media screen and (max-width: 768px) {
+            .tabbed-slider .slider .slide {
+                flex: 0 0 100%; /* Full width on small screens */
+            .tabbed-slider .slider .slide:last-child {
+                display: none; /* Hide extra empty slide on small screens */
+            }
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="tabbed-slider container">
+        <!-- Container for slider and tabs -->
+        <div class="slider-container">
+            <!-- Tabs container -->
+            <div class="tabs-container">
+                <!-- Tabs for navigation -->
+                <div class="tabs">
+                    <div class="tab" onclick="changeTab(0)">
+                        <a class="nav-item nav-link active tab-width" id="nav-home-tab " data-toggle="tab" 
+                        href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1">
+                            <title class="abc">Tasks</title>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" 
+                            fill-rule="evenodd"><g id="Website---Home-Hover-Menu" 
+                            transform="translate(-146.000000, -267.000000)" fill="#8E8E8E">
+                            <g id="Group-2" transform="translate(135.000000, 183.000000)">
+                                <g id="Organization-/-Status-/-checkmark--outline-/-20-Copy-6"
+                                 transform="translate(10.000000, 83.000000)">
+                                 <path d="M8.75,13.38375 L5.625,10.258125 L6.508125,9.375 L8.75,11.61625 L13.490625,6.875 L14.375,7.759375
+                                  L8.75,13.38375 L8.75,13.38375 Z M10,1.25 C5.16750844,1.25 1.25,5.16750844 1.25,10 C1.25,14.8324916
+                                  5.16750844,18.75 10,18.75 C14.8324916,18.75 18.75,14.8324916 18.75,10 C18.75,7.67935571 17.8281276,
+                                  5.45375898 16.1871843,3.81281566 C14.546241,2.17187235 12.3206443,1.25 10,1.25 Z M10,17.5 C5.85786438,
+                                  17.5 2.5,14.1421356 2.5,10 C2.5,5.85786438 5.85786438,2.5 10,2.5 C14.1421356,2.5 17.5,5.85786438 17.5,10 
+                                  C17.5,11.9891237 16.7098237,13.896778 15.3033009,15.3033009 C13.896778,16.7098237 11.9891237,17.5 10,17.5 Z" 
+                                  id="Fill"></path></g></g></g></g></svg></a> </div>
+                    <div class="tab" onclick="changeTab(1)"><a class="nav-item nav-link tab-width" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><svg width="15px" height="18px" viewBox="0 0 15 18" version="1.1"><title>Daily Reports</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Website---Home-Hover-Menu" transform="translate(-655.000000, -267.000000)" fill="#8E8E8E"><g id="Group-3" transform="translate(642.000000, 223.000000)"><g id="Organization-/-Data-/-report--data-/-20-Copy-2" transform="translate(10.500000, 43.000000)"><path d="M9.375,12.5 L10.625,12.5 L10.625,15 L9.375,15 L9.375,12.5 Z M12.5,11.25 L13.75,11.25 L13.75,15 L12.5,15 L12.5,11.25 Z M6.25,8.75 L7.5,8.75 L7.5,15 L6.25,15 L6.25,8.75 Z M15.625,3.125 L13.75,3.125 L13.75,2.5 C13.75,1.80964406 13.1903559,1.25 12.5,1.25 L7.5,1.25 C6.80964406,1.25 6.25,1.80964406 6.25,2.5 L6.25,3.125 L4.375,3.125 C3.68464406,3.125 3.125,3.68464406 3.125,4.375 L3.125,17.5 C3.125,18.1903559 3.68464406,18.75 4.375,18.75 L15.625,18.75 C16.3153559,18.75 16.875,18.1903559 16.875,17.5 L16.875,4.375 C16.875,3.68464406 16.3153559,3.125 15.625,3.125 Z M7.5,2.5 L12.5,2.5 L12.5,5 L7.5,5 L7.5,2.5 Z M15.625,17.5 L4.375,17.5 L4.375,4.375 L6.25,4.375 L6.25,6.25 L13.75,6.25 L13.75,4.375 L15.625,4.375 L15.625,17.5 Z" id="Fill"></path></g></g></g></g></svg></a></div>
+                    <div class="tab" onclick="changeTab(2)"><a class="nav-item nav-link tab-width" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1"><title>Safety</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Website---Home-Hover-Menu" transform="translate(-1161.000000, -269.000000)" fill="#8E8E8E"><g id="Group-5" transform="translate(1149.000000, 223.000000)"><g id="Enterprise-/-Health-/-health-cross-/-20-Copy-2" transform="translate(10.431906, 43.862069)"><path d="M11.875,17.5 L8.125,17.5 C7.43497245,17.4992078 6.87579217,16.9400275 6.875,16.25 L6.875,13.125 L3.75,13.125 C3.05997245,13.1242078 2.50079217,12.5650275 2.5,11.875 L2.5,8.125 C2.50068904,7.43492967 3.05992967,6.87568904 3.75,6.875 L6.875,6.875 L6.875,3.75 C6.87568904,3.05992967 7.43492967,2.50068904 8.125,2.5 L11.875,2.5 C12.5650275,2.50079217 13.1242078,3.05997245 13.125,3.75 L13.125,6.875 L16.25,6.875 C16.9400275,6.87579217 17.4992078,7.43497245 17.5,8.125 L17.5,11.875 C17.4990704,12.5649705 16.9399705,13.1240704 16.25,13.125 L13.125,13.125 L13.125,16.25 C13.1240704,16.9399705 12.5649705,17.4990704 11.875,17.5 Z M3.75,8.125 L3.75,11.875 L8.125,11.875 L8.125,16.25 L11.875,16.25 L11.875,11.875 L16.25,11.875 L16.25,8.125 L11.875,8.125 L11.875,3.75 L8.125,3.75 L8.125,8.125 L3.75,8.125 Z" id="Fill"></path></g></g></g></g></svg></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content slider -->
+            <div class="wrapper">
+                <div class="slider">
+                    <div class="slide row">
+                        <div class="col-lg-4 pt-5">
+                       
+                            <span class="svg-icon pb-3"><svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"><title>Tasks</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Website---Home-Hover-Menu" transform="translate(-146.000000, -267.000000)" fill="#f4cc2f">
+                                  <g id="Group-2" transform="translate(135.000000, 183.000000)">
+                                    <g id="Organization-/-Status-/-checkmark--outline-/-20-Copy-6" transform="translate(10.000000, 83.000000)">
+                                      <path d="M8.75,13.38375 L5.625,10.258125 L6.508125,9.375 L8.75,11.61625 L13.490625,6.875 L14.375,7.759375 L8.75,13.38375 L8.75,13.38375 Z M10,1.25 C5.16750844,1.25 1.25,5.16750844 1.25,10 C1.25,14.8324916 5.16750844,18.75 10,18.75 C14.8324916,18.75 18.75,14.8324916 18.75,10 C18.75,7.67935571 17.8281276,5.45375898 16.1871843,3.81281566 C14.546241,2.17187235 12.3206443,1.25 10,1.25 Z M10,17.5 C5.85786438,17.5 2.5,14.1421356 2.5,10 C2.5,5.85786438 5.85786438,2.5 10,2.5 C14.1421356,2.5 17.5,5.85786438 17.5,10 C17.5,11.9891237 16.7098237,13.896778 15.3033009,15.3033009 C13.896778,16.7098237 11.9891237,17.5 10,17.5 Z" id="Fill"></path></g></g></g></g></svg><h4>&nbsp;TASKS</h4></span>
+                                   <div class="text-left">
+                                    <h3 class="text-heading">Track and manage both general and specific project tasks.</h3>
+                                    <span class="learn-more-btn"> <a>Learn More <svg width="27px" height="23px" viewBox="0 0 27 23" version="1.1"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Website---Home" transform="translate(-1065.000000, -5716.000000)" fill="#000"><g id="Group-2" transform="translate(-175.000000, 5605.000000)"><g id="Group-6-Copy" transform="translate(1017.000000, 82.000000)"><g id="Actions-/-Navigation-/-arrow--right-/-20" transform="translate(219.000000, 23.000000)"><polygon id="Fill" points="19.6875 6.5625 18.1234375 8.08609375 26.4140625 16.40625 4.375 16.40625 4.375 18.59375 26.4140625 18.59375 18.1234375 26.8767187 19.6875 28.4375 30.625 17.5"></polygon></g></g></g></g></g></svg></a></span>
+                                   </div>
+                                      
+                        </div>
+                        <div class="col-lg-8">
+                            <img src="tasks_01.webp"  class="slide-image">
+                        </div>
+                       
+                       
+                    </div>
+                  
+                   
+                    <div class="slide row">
+                        <div class="col-lg-4 pt-5">
+                       
+                            <span class="svg-icon pb-3"><svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"><title>Tasks</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Website---Home-Hover-Menu" transform="translate(-146.000000, -267.000000)" fill="#f4cc2f">
+                                  <g id="Group-2" transform="translate(135.000000, 183.000000)">
+                                    <g id="Organization-/-Status-/-checkmark--outline-/-20-Copy-6" transform="translate(10.000000, 83.000000)">
+                                      <path d="M8.75,13.38375 L5.625,10.258125 L6.508125,9.375 L8.75,11.61625 L13.490625,6.875 L14.375,7.759375 L8.75,13.38375 L8.75,13.38375 Z M10,1.25 C5.16750844,1.25 1.25,5.16750844 1.25,10 C1.25,14.8324916 5.16750844,18.75 10,18.75 C14.8324916,18.75 18.75,14.8324916 18.75,10 C18.75,7.67935571 17.8281276,5.45375898 16.1871843,3.81281566 C14.546241,2.17187235 12.3206443,1.25 10,1.25 Z M10,17.5 C5.85786438,17.5 2.5,14.1421356 2.5,10 C2.5,5.85786438 5.85786438,2.5 10,2.5 C14.1421356,2.5 17.5,5.85786438 17.5,10 C17.5,11.9891237 16.7098237,13.896778 15.3033009,15.3033009 C13.896778,16.7098237 11.9891237,17.5 10,17.5 Z" id="Fill"></path></g></g></g></g></svg><h4>&nbsp;TASKS</h4></span>
+                                   <div class="text-left">
+                                    <h3 class="text-heading">Track and manage both general and specific project tasks.</h3>
+                                    <span class="learn-more-btn"> <a>Learn More <svg width="27px" height="23px" viewBox="0 0 27 23" version="1.1"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Website---Home" transform="translate(-1065.000000, -5716.000000)" fill="#000"><g id="Group-2" transform="translate(-175.000000, 5605.000000)"><g id="Group-6-Copy" transform="translate(1017.000000, 82.000000)"><g id="Actions-/-Navigation-/-arrow--right-/-20" transform="translate(219.000000, 23.000000)"><polygon id="Fill" points="19.6875 6.5625 18.1234375 8.08609375 26.4140625 16.40625 4.375 16.40625 4.375 18.59375 26.4140625 18.59375 18.1234375 26.8767187 19.6875 28.4375 30.625 17.5"></polygon></g></g></g></g></g></svg></a></span>
+                                   </div>
+                                      
+                        </div>
+                        <div class="col-lg-8">
+                            <img src="tasks_01.webp"  class="slide-image">
+                        </div>
+                       
+                       
+                    </div>
+
+                    <div class="slide row">
+                        <div class="col-lg-4 pt-5">
+                       
+                            <span class="svg-icon pb-3"><svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"><title>Tasks</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Website---Home-Hover-Menu" transform="translate(-146.000000, -267.000000)" fill="#f4cc2f">
+                                  <g id="Group-2" transform="translate(135.000000, 183.000000)">
+                                    <g id="Organization-/-Status-/-checkmark--outline-/-20-Copy-6" transform="translate(10.000000, 83.000000)">
+                                      <path d="M8.75,13.38375 L5.625,10.258125 L6.508125,9.375 L8.75,11.61625 L13.490625,6.875 L14.375,7.759375 L8.75,13.38375 L8.75,13.38375 Z M10,1.25 C5.16750844,1.25 1.25,5.16750844 1.25,10 C1.25,14.8324916 5.16750844,18.75 10,18.75 C14.8324916,18.75 18.75,14.8324916 18.75,10 C18.75,7.67935571 17.8281276,5.45375898 16.1871843,3.81281566 C14.546241,2.17187235 12.3206443,1.25 10,1.25 Z M10,17.5 C5.85786438,17.5 2.5,14.1421356 2.5,10 C2.5,5.85786438 5.85786438,2.5 10,2.5 C14.1421356,2.5 17.5,5.85786438 17.5,10 C17.5,11.9891237 16.7098237,13.896778 15.3033009,15.3033009 C13.896778,16.7098237 11.9891237,17.5 10,17.5 Z" id="Fill"></path></g></g></g></g></svg><h4>&nbsp;TASKS</h4></span>
+                                   <div class="text-left">
+                                    <h3 class="text-heading">Track and manage both general and specific project tasks.</h3>
+                                    <span class="learn-more-btn"> <a>Learn More <svg width="27px" height="23px" viewBox="0 0 27 23" version="1.1"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Website---Home" transform="translate(-1065.000000, -5716.000000)" fill="#000"><g id="Group-2" transform="translate(-175.000000, 5605.000000)"><g id="Group-6-Copy" transform="translate(1017.000000, 82.000000)"><g id="Actions-/-Navigation-/-arrow--right-/-20" transform="translate(219.000000, 23.000000)"><polygon id="Fill" points="19.6875 6.5625 18.1234375 8.08609375 26.4140625 16.40625 4.375 16.40625 4.375 18.59375 26.4140625 18.59375 18.1234375 26.8767187 19.6875 28.4375 30.625 17.5"></polygon></g></g></g></g></g></svg></a></span>
+                                   </div>
+                                      
+                        </div>
+                        <div class="col-lg-8">
+                            <img src="tasks_01.webp"  class="slide-image">
+                        </div>
+                       
+                       
+                    </div>
+                    
+                </div>
+            </div>
+                
+            
+           
+        </div>
+
+        <!-- Navigation arrows -->
+        <div class="nav-arrows">
+            <div class="nav-arrow left" onclick="prevSlide(0)"><i class="fa fa-chevron-left"></i></div>
+            <div class="nav-arrow right" onclick="nextSlide(1)"><i class="fa fa-chevron-right"></i></div>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 0;
+        const numTabs = 3;
+        const slideWidth = 100;
+        const autoplayInterval = 50000; // Change tabs every 3 seconds
+
+        function changeTab(tabIndex) {
+            currentTab = tabIndex;
+            changeSlide(currentTab);
+        }
+
+        // Function to change the active tab
+        function changeTab(tabIndex) {
+            currentTab = tabIndex;
+            changeSlide(currentTab);
+        }
+
+        // Function to change the active slide
+        function changeSlide(tabIndex) {
+            const slider = document.querySelector('.tabbed-slider .slider');
+            slider.style.transform = `translateX(-${slideWidth * tabIndex}%)`;
+            setActiveTab(tabIndex);
+        }
+
+        // Function to set the active tab's background
+    
+
+
+      
+        // Function to move to the previous tab
+        function prevSlide(arrowIndex) {
+            currentTab = (currentTab - 1 + numTabs) % numTabs;
+            changeSlide(currentTab);
+        }
+
+        // Function to move to the next tab
+        function nextSlide(arrowIndex) {
+            currentTab = (currentTab + 1) % numTabs;
+            changeSlide(currentTab);
+        }
+
+        // Autoplay functionality
+        setInterval(() => {
+            nextSlide(1); // Auto move to the next tab
+        }, autoplayInterval);
+    </script>
+</body>
+</html>
